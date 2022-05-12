@@ -1,0 +1,101 @@
+/*<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+
+<script>*/
+// javascript program for different tree traversals
+
+/* Class containing left and right child of current
+node and key value*/
+
+class Nodes {
+	constructor(value) {
+		this.key = value;
+		this.left = null;
+		this.right = null;
+	}
+}
+
+	// Root of Binary Tree
+	var root = null;
+
+	
+	/*
+	* The given binary tree, print its nodes according to the "bottom-up" postorder
+	* traversal.
+	*/
+	function printPostorder(nodes) {
+		if (nodes == null)
+			return;
+
+		// first recur on left subtree
+		printPostorder(nodes.left);
+
+		// then recur on right subtree
+		printPostorder(nodes.right);
+
+		// now deal with the node
+		document.write(nodes.key + " ");
+	}
+
+	/* Given a binary tree, print its nodes in inorder */
+	function printInorder(nodes) {
+		if (nodes == null)
+			return;
+
+		/* first recur on left child */
+		printInorder(nodes.left);
+
+		/* then print the data of node */
+		document.write(nodes.key + " ");
+
+		/* now recur on right child */
+		printInorder(nodes.right);
+	}
+
+	/* Given a binary tree, print its nodes in preorder */
+	function printPreorder(nodes) {
+		if (nodes == null)
+			return;
+
+		/* first print data of node */
+		document.write(nodes.key + " ");
+
+		/* then recur on left subtree */
+		printPreorder(nodes.left);
+
+		/* now recur on right subtree */
+		printPreorder(nodes.right);
+		
+	}
+
+
+
+	// Driver method
+	
+	
+		root = new Nodes(1);
+		root.left = new Nodes(2);
+		root.right = new Nodes(3);
+		root.left.left = new Nodes(4);
+		root.left.right = new Nodes(5);
+
+		document.write("Preorder traversal of binary tree is <br/>");
+		printPreorder(root);
+
+		document.write("<br/>Inorder traversal of binary tree is <br/>");
+		printInorder(root);
+
+		document.write("<br/>Postorder traversal of binary tree is <br/>");
+		printPostorder(root);
+
+// This code is contributed by aashish1995
+
+
+
+/*</script>
+</head>
+<body>
+</body>
+</html>*/
